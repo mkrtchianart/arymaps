@@ -1,0 +1,5309 @@
+{
+  "version": 8,
+  "name": "ARY_GMAP",
+  "metadata": {
+    "maptiler:copyright": "You are licensed to use the style or its derivate for serving map tiles exclusively with MapTiler Server or MapTiler Cloud and in accordance with their licenses and terms. If you plan to use the style in a different way, contact us at sales@maptiler.com.",
+    "maputnik:renderer": "mlgljs"
+  },
+  "center": [44.51351, 40.17813],
+  "zoom": 8,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "contours": {
+      "url": "https://tiles.openfreemap.org/planet",
+      "type": "vector"
+    },
+    "jpview": {"url": "https://tiles.openfreemap.org/planet", "type": "vector"},
+    "maptiler_planet": {
+      "url": "https://tiles.openfreemap.org/planet",
+      "type": "vector"
+    },
+    "terrain-rgb": {
+      "url": "https://tiles.openfreemap.org/planet",
+      "type": "raster-dem"
+    },
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+    }
+  },
+  "sprite": "/Users/art/Documents/OSM_styles/sprite/",
+  "glyphs": "fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "Background",
+      "type": "background",
+      "minzoom": 0,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "background-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(233, 236, 239)",
+          10,
+          "rgba(233, 236, 239)",
+          15,
+          "rgba(233, 236, 239)"
+        ]
+      }
+    },
+    {
+      "id": "Crop",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "crop"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(142.81, 197.61, 114.99, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Grass",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "grass"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(142.28, 197.11, 114.6, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Scrub",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "scrub"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(141.11, 196.02, 113.73, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Tree",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "tree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(140.64, 195.58, 113.39, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Forest",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "forest"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(140.46, 195.41, 113.26, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Snow",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 1,
+      "maxzoom": 8.5,
+      "filter": ["all", ["==", "class", "snow"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(247.35, 249.15, 250.05, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 1, 8.5, 0],
+        "fill-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Aerodrome",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 10,
+      "filter": ["all", ["==", "class", "aerodrome"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Taxiway",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 12,
+      "filter": ["all", ["==", "class", "taxiway"]],
+      "layout": {"visibility": "none"},
+      "paint": {"fill-color": "rgba(174.4, 180.4, 186, 1)"}
+    },
+    {
+      "id": "Apron",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 12,
+      "filter": ["all", ["==", "class", "apron"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Rock",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "rock"],
+        ["==", "subclass", "bare_rock"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(247.35, 249.15, 250.05, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.9, 12, 0.5]
+      }
+    },
+    {
+      "id": "Wetland",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 9,
+      "filter": ["all", ["==", "class", "wetland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(138.59, 196.51, 132.41, 0.7)"}
+    },
+    {
+      "id": "Ice",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 5,
+      "filter": ["all", ["==", "class", "ice"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(247.35, 249.15, 250.05, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.7, 12, 0.5]
+      }
+    },
+    {
+      "id": "Farmland",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 9,
+      "filter": ["all", ["==", "class", "farmland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(183, 228, 199)", "fill-opacity": 1}
+    },
+    {
+      "id": "Golf",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "class", "grass"],
+        ["==", "subclass", "golf_course"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(141.93, 196.78, 114.34, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.1, 12, 1]
+      }
+    },
+    {
+      "id": "Park",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": ["all", ["==", "class", "grass"], ["==", "subclass", "park"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(183, 228, 199)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.2, 14, 1]
+      }
+    },
+    {
+      "id": "Wood",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "wood"],
+        ["in", "subclass", "forest", "wood"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": {
+          "stops": [[7, "rgba(183, 228, 199)"], [10, "rgba(183, 228, 199)"]]
+        }
+      }
+    },
+    {
+      "id": "Grassland",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "class", "grass"],
+        ["!in", "subclass", "park", "golf_course", "garden"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "subclass"],
+          "allotments",
+          "rgba(183, 228, 199)",
+          "fell",
+          "rgba(183, 228, 199)",
+          "garden",
+          "rgba(183, 228, 199)",
+          "grass",
+          "rgba(183, 228, 199)",
+          "grassland",
+          "rgba(183, 228, 199)",
+          "heath",
+          "rgba(183, 228, 199)",
+          "recreation_ground",
+          "rgba(183, 228, 199)",
+          "meadow",
+          "rgba(183, 228, 199)",
+          "scrub",
+          "rgba(183, 228, 199)",
+          "wood",
+          "rgba(183, 228, 199)",
+          "rgba(183, 228, 199)"
+        ],
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.1, 12, 1]
+      }
+    },
+    {
+      "id": "Garden",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": ["all", ["==", "class", "grass"], ["in", "subclass", "garden"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(183, 228, 199)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.1, 12, 1]
+      }
+    },
+    {
+      "id": "Sand",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "class", "sand"],
+        ["in", "subclass", "sand", "beach"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(247.35, 249.15, 250.05, 1)",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.1, 12, 1]
+      }
+    },
+    {
+      "id": "Military",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 10,
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 0.2)"}
+    },
+    {
+      "id": "Industrial",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["==", "class", "industrial"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Commercial",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["==", "class", "commercial"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Railway",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 12,
+      "filter": ["==", "class", "railway"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [12, "rgba(243, 241, 238, 1)"],
+            [15, "rgba(243, 241, 238, 1)"]
+          ]
+        }
+      }
+    },
+    {
+      "id": "University",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 13,
+      "filter": ["all", ["in", "class", "university", "college"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Cemetery",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["==", "class", "cemetery"],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Gardenland",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "garden"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(143.4, 198.15, 115.42, 1)"}
+    },
+    {
+      "id": "Zoo",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "zoo"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Theme park",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "theme_park"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(183, 228, 199)"}
+    },
+    {
+      "id": "Stadium",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "stadium"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "School",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 16,
+      "filter": ["all", ["==", "class", "school"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Track",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 17,
+      "filter": ["all", ["==", "class", "track"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Residential",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 12,
+      "filter": ["==", "class", "residential"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          12,
+          "rgba(243, 241, 238, 0.4)",
+          16,
+          "rgba(243, 241, 238, 0.2)"
+        ],
+        "fill-opacity": 0
+      }
+    },
+    {
+      "id": "Pitch",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "pitch"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Hillshading",
+      "type": "hillshade",
+      "source": "terrain-rgb",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(174.4, 180.4, 186, 1)",
+        "hillshade-exaggeration": {
+          "stops": [[6, 0.2], [9, 0.3], [11, 0.4], [13, 0.5], [16, 0]]
+        },
+        "hillshade-highlight-color": "rgba(174.4, 180.4, 186, 1)",
+        "hillshade-illumination-direction": 310,
+        "hillshade-shadow-color": "rgba(174.4, 180.4, 186, 1)"
+      }
+    },
+    {
+      "id": "National park",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "park",
+      "minzoom": 6,
+      "maxzoom": 11,
+      "filter": ["all", ["==", "class", "national_park"]],
+      "paint": {
+        "fill-antialias": false,
+        "fill-color": "rgba(135.07, 190.37, 109.27, 0.2)"
+      }
+    },
+    {
+      "id": "Contour",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "minzoom": 11,
+      "filter": ["all", ["!in", "nth_line", 10, 5], [">", "height", 0]],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(174.4, 180.4, 186, 1)",
+        "line-opacity": {"stops": [[10, 0.2], [14, 0.2]]},
+        "line-width": 0.8
+      }
+    },
+    {
+      "id": "Contour labels",
+      "type": "symbol",
+      "metadata": {},
+      "source": "contours",
+      "source-layer": "contour",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "nth_line", 10, 5],
+        [">", "height", 0]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "text-allow-overlap": false,
+        "text-field": "{height}",
+        "text-font": ["Noto Sans Italic"],
+        "text-ignore-placement": false,
+        "text-padding": 10,
+        "text-rotation-alignment": "map",
+        "text-size": {"base": 1, "stops": [[15, 9.5], [20, 12]]},
+        "visibility": "none"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 0.5
+      }
+    },
+    {
+      "id": "Other waterway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "filter": ["!in", "class", "canal", "river", "stream"],
+      "layout": {"line-cap": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(162, 210, 255)",
+        "line-width": {"base": 1.3, "stops": [[13, 0.5], [20, 2]]}
+      }
+    },
+    {
+      "id": "Stream and canal",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "filter": ["in", "class", "canal", "stream"],
+      "layout": {"line-cap": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(162, 210, 255)",
+        "line-opacity": 0.7,
+        "line-width": {"base": 1.3, "stops": [[10, 0.2], [20, 8]]}
+      }
+    },
+    {
+      "id": "River",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "filter": ["==", "class", "river"],
+      "layout": {"line-cap": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          "rgba(162, 210, 255)",
+          11,
+          "rgba(162, 210, 255)",
+          12,
+          "rgba(162, 210, 255)",
+          13,
+          "rgba(162, 210, 255)"
+        ],
+        "line-width": {"base": 1, "stops": [[10, 0.5], [20, 5]]}
+      }
+    },
+    {
+      "id": "Water",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "water",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(162, 210, 255)", "fill-opacity": 1}
+    },
+    {
+      "id": "Pier",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 16,
+      "filter": ["all", ["==", "class", "pier"]],
+      "paint": {
+        "fill-color": "rgba(243, 241, 238, 1)",
+        "fill-opacity": {"stops": [[14, 0.3], [16, 0.6]]}
+      }
+    },
+    {
+      "id": "Dam",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 10,
+      "filter": ["all", ["==", "class", "dam"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Path",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["==", "subclass", "pedestrian"]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {"fill-color": "rgba(243, 241, 238, 1)"}
+    },
+    {
+      "id": "Building shade",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "building",
+      "minzoom": 17,
+      "maxzoom": 22,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(173, 181, 189)",
+        "fill-opacity": {"base": 1, "stops": [[14, 0.2], [16, 1]]}
+      }
+    },
+    {
+      "id": "Building",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "building",
+      "minzoom": 14.5,
+      "maxzoom": 22,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          "rgba(206, 212, 218)",
+          16,
+          "rgba(206, 212, 218)"
+        ],
+        "fill-opacity": {"stops": [[14.5, 0], [16, 1]], "type": "exponential"},
+        "fill-translate": {
+          "stops": [[14, [-0.2, -0.2]], [15, [-1, -1]], [18, [-2, -2]]]
+        }
+      }
+    },
+    {
+      "id": "Station platform",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["==", "subclass", "platform"]
+      ],
+      "paint": {"fill-color": "rgba(243, 241, 238, 0.6)", "fill-opacity": 1}
+    },
+    {
+      "id": "Tunnel service track outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "service", "track"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(196.05, 229.8, 247.35, 1)",
+        "line-dasharray": [0.5, 0.25],
+        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
+      }
+    },
+    {
+      "id": "Tunnel trunk primary outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "primary", "trunk"]
+      ],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(241.5, 203.22, 157.56, 1)",
+        "line-width": {"base": 1.6, "stops": [[6, 0.5], [16, 10], [22, 150]]}
+      }
+    },
+    {
+      "id": "Tunnel path",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 15.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["all", ["==", "brunnel", "tunnel"], ["==", "class", "path"]]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(174.4, 180.4, 186, 1)",
+        "line-dasharray": [1.7, 0.6],
+        "line-opacity": {"stops": [[14, 1], [16, 0.5]]},
+        "line-width": {"base": 1, "stops": [[15, 1.2], [22, 2]]}
+      }
+    },
+    {
+      "id": "Tunnel service track",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "service", "track"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(247.35, 249.15, 250.05, 1)",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.2],
+          ["zoom"],
+          15.5,
+          0,
+          16,
+          2,
+          20,
+          7.5
+        ]
+      }
+    },
+    {
+      "id": "Tunnel minor",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["==", "class", "minor_road"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-opacity": 1,
+        "line-width": {"base": 1.2, "stops": [[13.5, 0], [14, 2.5], [20, 11.5]]}
+      }
+    },
+    {
+      "id": "Tunnel secondary tertiary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "maxzoom": 22,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "secondary", "tertiary"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(247, 237, 209, 0.2)",
+        "line-dasharray": [1.7, 0.6],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7,
+          1,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Tunnel trunk primary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "primary", "trunk"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(222, 226, 230)",
+        "line-dasharray": [1],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7,
+          1,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Tunnel motorway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["==", "class", "motorway"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(127, 205, 176, 1)",
+        "line-dasharray": [1.7, 0.5],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7,
+          1,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Ferry",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10,
+      "filter": ["all", ["==", "class", "ferry"]],
+      "paint": {
+        "line-color": "rgba(162, 210, 255)",
+        "line-dasharray": [4, 1],
+        "line-width": {"stops": [[10, 0.6], [15, 1]]}
+      }
+    },
+    {
+      "id": "Highway minor outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12.5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!=", "brunnel", "tunnel"],
+          ["in", "class", "minor", "service", "track"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          "rgba(230.5, 231.55, 232.95, 1)",
+          18,
+          "rgba(230.5, 231.55, 232.95, 1)"
+        ],
+        "line-opacity": {"stops": [[12, 0.8], [15, 1]]},
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12,
+          0.12,
+          22,
+          105
+        ]
+      }
+    },
+    {
+      "id": "Highway secondary tertiary outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["in", "class", "secondary", "tertiary"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(202.95, 202.95, 202.95)",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          10,
+          0.2,
+          16,
+          11,
+          22,
+          165
+        ]
+      }
+    },
+    {
+      "id": "Highway trunk primary outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!in", "brunnel", "bridge", "tunnel"],
+          ["in", "class", "primary", "trunk"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          7,
+          "rgba(202.95, 202.95, 202.95)",
+          10,
+          "rgba(202.95, 202.95, 202.95)"
+        ],
+        "line-offset": 0,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          0.5,
+          16,
+          11,
+          22,
+          165
+        ]
+      }
+    },
+    {
+      "id": "Highway link outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        [
+          "in",
+          "class",
+          "primary_link",
+          "secondary_link",
+          "tertiary_link",
+          "trunk_link"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(241.5, 203.22, 157.56, 1)",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+        }
+      }
+    },
+    {
+      "id": "Highway motorway link outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["==", "class", "motorway_link"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(119.95, 187.75, 163.1, 1)",
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7,
+          1,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Highway motorway outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["==", "class", "motorway"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(119.95, 187.75, 163.1, 1)",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          1,
+          16,
+          9.5,
+          22,
+          84
+        ]
+      }
+    },
+    {
+      "id": "Highway path",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 1,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["all", ["!in", "brunnel", "bridge", "tunnel"], ["==", "class", "path"]]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(174.4, 180.4, 186, 1)",
+        "line-dasharray": [2, 0.75],
+        "line-width": 2
+      }
+    },
+    {
+      "id": "Highway link",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        [
+          "in",
+          "class",
+          "primary_link",
+          "secondary_link",
+          "tertiary_link",
+          "trunk_link"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 216, 168, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+        }
+      }
+    },
+    {
+      "id": "Highway motorway link",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["==", "class", "motorway_link"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(127, 205, 176, 1)",
+          12,
+          "rgba(127, 205, 176, 1)"
+        ],
+        "line-width": {"base": 1.6, "stops": [[7, 1], [16, 8], [22, 80]]}
+      }
+    },
+    {
+      "id": "Highway minor",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12.5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!=", "brunnel", "tunnel"],
+          ["in", "class", "minor", "service", "track"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [15, "rgba(255, 255, 255, 1)"],
+            [18, "rgba(255, 255, 255, 1)"]
+          ]
+        },
+        "line-opacity": {"stops": [[12, 0.5], [15, 1]]},
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12,
+          0.1,
+          22,
+          100
+        ]
+      }
+    },
+    {
+      "id": "Highway secondary tertiary construction",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "filter": [
+        "all",
+        ["in", "class", "secondary_construction", "tertiary_construction"]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          "rgba(247, 237, 209, 0.75)",
+          16,
+          "rgba(247, 237, 209, 0.75)"
+        ],
+        "line-dasharray": [3, 1.2],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          10,
+          0.2,
+          16,
+          10,
+          22,
+          150
+        ]
+      }
+    },
+    {
+      "id": "Highway secondary tertiary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "filter": [
+        "all",
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["in", "class", "secondary", "tertiary"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          "rgba(255, 255, 255)",
+          16,
+          "rgba(255, 255, 255)"
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          10,
+          0.2,
+          16,
+          10,
+          22,
+          150
+        ]
+      }
+    },
+    {
+      "id": "Highway trunk primary construction",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["in", "class", "trunk_construction", "primary_construction"]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          7,
+          "rgba(255, 216, 168, 0.65)",
+          10,
+          "rgba(255, 216, 168, 0.65)"
+        ],
+        "line-dasharray": [1],
+        "line-offset": 0,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          0.5,
+          16,
+          10,
+          22,
+          150
+        ],
+        "line-opacity": 0.3
+      }
+    },
+    {
+      "id": "Highway trunk primary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!in", "brunnel", "bridge", "tunnel"],
+          ["in", "class", "primary", "trunk"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          7,
+          "rgba(248, 249, 250)",
+          10,
+          "rgba(255, 255, 255)"
+        ],
+        "line-offset": 0,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          0.5,
+          16,
+          10,
+          22,
+          150
+        ]
+      }
+    },
+    {
+      "id": "Highway motorway construction",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": ["all", ["in", "class", "motorway_construction"]],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(127, 205, 176, 1)",
+          12,
+          "rgba(127, 205, 176, 1)"
+        ],
+        "line-dasharray": [3, 1.2],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          1.3,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Highway motorway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!in", "brunnel", "bridge", "tunnel"],
+          ["==", "class", "motorway"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(127, 205, 176, 1)",
+          12,
+          "rgba(127, 205, 176, 1)"
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          1.3,
+          16,
+          8,
+          22,
+          80
+        ]
+      }
+    },
+    {
+      "id": "Railway other",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "rail"],
+        ["in", "subclass", "preserved"]
+      ],
+      "layout": {"line-cap": "butt"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-gap-width": 0,
+        "line-offset": 0,
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway gondola",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "aerialway"],
+        ["==", "subclass", "gondola"]
+      ],
+      "layout": {"line-cap": "butt"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-gap-width": 0,
+        "line-offset": 0,
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway cable",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "aerialway"],
+        ["==", "subclass", "cable_car"]
+      ],
+      "layout": {"line-cap": "butt"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-gap-width": 0,
+        "line-offset": 0,
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway funicular",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "rail"],
+        ["==", "subclass", "funicular"],
+        ["!=", "brunnel", "tunnel"]
+      ],
+      "layout": {"line-cap": "butt"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-gap-width": 0,
+        "line-offset": 0,
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway tram",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "filter": ["all", ["==", "class", "transit"], ["in", "subclass", "tram"]],
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway monorail",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "transit"],
+        ["==", "subclass", "monorail"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": {
+          "stops": [
+            [11, "rgba(160, 167, 176, 1)"],
+            [17, "rgba(160, 167, 176, 1)"]
+          ]
+        },
+        "line-opacity": {"stops": [[12, 0.8], [15, 1]]},
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway light rail",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "transit"],
+        ["in", "subclass", "light_rail"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": {
+          "stops": [
+            [11, "rgba(160, 167, 176, 1)"],
+            [17, "rgba(160, 167, 176, 1)"]
+          ]
+        },
+        "line-opacity": {"stops": [[12, 0.8], [15, 1]]},
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway subway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "transit"],
+        ["==", "subclass", "subway"]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": {
+          "stops": [
+            [13, "rgba(154.75, 152.3, 177.4, 0.5)"],
+            [17, "rgba(154.75, 152.3, 177.4, 0.5)"]
+          ]
+        },
+        "line-dasharray": [6, 1],
+        "line-opacity": 1,
+        "line-width": {"base": 1.4, "stops": [[12, 1], [20, 3]]}
+      }
+    },
+    {
+      "id": "Railway rail",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "rail"],
+        ["in", "subclass", "rail", "narrow_gauge"],
+        ["!=", "brunnel", "tunnel"],
+        ["!=", "brunnel", "bridge"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          "rgba(160, 167, 176, 1)",
+          17,
+          "rgba(160, 167, 176, 1)"
+        ],
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Railway hatching",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          ["!has", "service"],
+          ["!in", "brunnel", "bridge", "tunnel"],
+          ["==", "class", "rail"]
+        ]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-dasharray": {"stops": [[11, [0.2, 3]], [15, [0.2, 2]]]},
+        "line-opacity": 0,
+        "line-width": {"base": 1.4, "stops": [[12, 1], [15, 6], [20, 9]]}
+      }
+    },
+    {
+      "id": "Bridge link outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        [
+          "in",
+          "class",
+          "primary_link",
+          "secondary_link",
+          "tertiary_link",
+          "trunk_link"
+        ]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(241.5, 203.22, 157.56, 1)",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [[12, 1], [13, 3], [14, 4], [20, 18]]
+        }
+      }
+    },
+    {
+      "id": "Bridge secondary tertiary outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "maxzoom": 22,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "secondary", "tertiary"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(202.95, 202.95, 202.95)",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          10,
+          0.2,
+          16,
+          11,
+          22,
+          165
+        ]
+      }
+    },
+    {
+      "id": "Bridge trunk primary outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "primary", "trunk"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          7,
+          "rgba(202.95, 202.95, 202.95)",
+          10,
+          "rgba(202.95, 202.95, 202.95)"
+        ],
+        "line-offset": 0,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          0.5,
+          16,
+          11,
+          22,
+          165
+        ]
+      }
+    },
+    {
+      "id": "Bridge motorway outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["==", "class", "motorway"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(119.95, 187.75, 163.1, 1)",
+        "line-width": {"base": 1.6, "stops": [[7, 1.1], [16, 8.8], [22, 90]]}
+      }
+    },
+    {
+      "id": "Bridge path outline",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["all", ["==", "brunnel", "bridge"], ["==", "class", "path"]]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {"line-color": "rgba(174.4, 180.4, 186, 1)", "line-width": 8}
+    },
+    {
+      "id": "Bridge motorway link",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["==", "class", "motorway_link"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(127, 205, 176, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+        }
+      }
+    },
+    {
+      "id": "Bridge path",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 14.5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["all", ["==", "brunnel", "bridge"], ["==", "class", "path"]]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(174.4, 180.4, 186, 1)",
+        "line-width": {"base": 1.2, "stops": [[15, 1.1], [20, 5]]}
+      }
+    },
+    {
+      "id": "Bridge link",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        [
+          "in",
+          "class",
+          "primary_link",
+          "secondary_link",
+          "tertiary_link",
+          "trunk_link"
+        ]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(255, 216, 168, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+        }
+      }
+    },
+    {
+      "id": "Bridge secondary tertiary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 10.5,
+      "maxzoom": 22,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "secondary", "tertiary"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          "rgba(248, 249, 250)",
+          16,
+          "rgba(248, 249, 250)"
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          10,
+          0.2,
+          16,
+          10,
+          22,
+          150
+        ]
+      }
+    },
+    {
+      "id": "Bridge trunk primary",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 6.5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "primary", "trunk"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          7,
+          "rgba(255, 255, 255)",
+          10,
+          "rgba(255, 255, 255)"
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          6,
+          0.5,
+          16,
+          10,
+          22,
+          150
+        ]
+      }
+    },
+    {
+      "id": "Bridge motorway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "brunnel", "bridge"],
+        ["==", "class", "motorway"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(127, 205, 176, 1)",
+          12,
+          "rgba(127, 205, 176, 1)"
+        ],
+        "line-width": {"base": 1.6, "stops": [[7, 1], [16, 8], [22, 80]]}
+      }
+    },
+    {
+      "id": "Bridge subway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "bridge"], ["==", "class", "subway"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(154.75, 152.3, 177.4, 1)",
+        "line-opacity": 0.8,
+        "line-width": {"base": 1.4, "stops": [[14, 1], [15, 2], [20, 4]]}
+      }
+    },
+    {
+      "id": "Bridge railway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "bridge"], ["==", "class", "rail"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          "rgba(160, 167, 176, 1)",
+          17,
+          "rgba(160, 167, 176, 1)"
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Bridge railway hatching",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "bridge"], ["==", "class", "rail"]],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-width": {"base": 1.4, "stops": [[12, 1], [15, 6], [20, 9]]}
+      }
+    },
+    {
+      "id": "Tunnel railway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["==", "class", "rail"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-blur": 1,
+        "line-color": "rgba(160, 167, 176, 1)",
+        "line-dasharray": [
+          "step",
+          ["zoom"],
+          ["literal", [4, 1]],
+          10,
+          ["literal", [5, 1]]
+        ],
+        "line-opacity": {"stops": [[12, 0.5], [14, 1]]},
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          11,
+          0.5,
+          15,
+          1,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Tunnel railway subway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["==", "class", "subway"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(154.75, 152.3, 177.4, 1)",
+        "line-dasharray": [
+          "step",
+          ["zoom"],
+          ["literal", [3, 1]],
+          15,
+          ["literal", [3, 1]],
+          16,
+          ["literal", [4, 1]]
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.8, 16, 1],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.4],
+          ["zoom"],
+          14,
+          1.5,
+          15,
+          2,
+          22,
+          4
+        ]
+      }
+    },
+    {
+      "id": "Extruded building",
+      "type": "fill-extrusion",
+      "source": "maptiler_planet",
+      "source-layer": "building",
+      "minzoom": 17,
+      "layout": {"visibility": "none"},
+      "paint": {
+        "fill-extrusion-color": "rgba(174.4, 180.4, 186, 1)",
+        "fill-extrusion-height": {
+          "property": "render_height",
+          "type": "identity"
+        },
+        "fill-extrusion-vertical-gradient": true,
+        "fill-extrusion-opacity": 0
+      }
+    },
+    {
+      "id": "Border maritime level 4",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 10,
+      "maxzoom": 14,
+      "filter": ["all", ["in", "admin_level", 2, 4], ["==", "maritime", 1]],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": [3, 1, 1, 1],
+        "line-opacity": {"stops": [[11, 0.2], [16, 0.4]]},
+        "line-width": {"stops": [[10, 1.7], [15, 3]]}
+      }
+    },
+    {
+      "id": "Border other buffer",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "admin_level", 5, 6, 7, 8],
+        ["!=", "maritime", 1]
+      ],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(206.45, 211.6, 217.2, 1)",
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          0.5,
+          20,
+          0.75
+        ],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 11, 1.5, 22, 4]
+      }
+    },
+    {
+      "id": "Border other",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "admin_level", 5, 6, 7, 8],
+        ["!=", "maritime", 1],
+        ["!=", "disputed", 1]
+      ],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": [3, 1, 1, 1],
+        "line-opacity": {"stops": [[11, 1], [20, 0.75]]},
+        "line-width": {"stops": [[11, 0.4], [22, 2]]}
+      }
+    },
+    {
+      "id": "Border level 5 buffer",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "admin_level", 5], ["!=", "maritime", 1]],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(206.45, 211.6, 217.2, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 20, 0.75],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          1,
+          10,
+          2.5,
+          22,
+          6
+        ]
+      }
+    },
+    {
+      "id": "Border level 5",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "admin_level", 5],
+        ["!=", "maritime", 1],
+        ["!=", "disputed", 1]
+      ],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": [4, 1, 1, 1],
+        "line-opacity": {"stops": [[6, 1], [20, 0.75]]},
+        "line-width": {"stops": [[10, 0.4], [22, 3]]}
+      }
+    },
+    {
+      "id": "Border level 4 buffer",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 4.5,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "admin_level", 4], ["!=", "maritime", 1]],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(206.45, 211.6, 217.2, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 20, 0.75],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          1,
+          10,
+          2.5,
+          22,
+          6
+        ]
+      }
+    },
+    {
+      "id": "Border level 4",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 4.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "admin_level", 4],
+        ["!=", "maritime", 1],
+        ["!=", "disputed", 1]
+      ],
+      "layout": {"line-join": "round", "visibility": "none"},
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": [4, 1, 1, 1],
+        "line-opacity": {"stops": [[6, 1], [20, 0.75]]},
+        "line-width": {"stops": [[10, 0.4], [22, 3]]}
+      }
+    },
+    {
+      "id": "Border level 3 buffer",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 4,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "admin_level", 3], ["!=", "maritime", 1]],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(206.45, 211.6, 217.2, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 20, 0.75],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          2,
+          10,
+          2.5,
+          22,
+          6
+        ]
+      }
+    },
+    {
+      "id": "Border level 3",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 4,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "admin_level", 3],
+        ["!=", "maritime", 1],
+        ["!=", "disputed", 1]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": ["literal", [5, 1, 1, 1]],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          0.5,
+          10,
+          1.2,
+          22,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Border level 2 buffer",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 1,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "admin_level", 2], ["!=", "maritime", 1]],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(206.45, 211.6, 217.2, 1)",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          0,
+          1,
+          4,
+          2,
+          5,
+          2.5,
+          12,
+          6
+        ],
+        "line-opacity": 0.2
+      }
+    },
+    {
+      "id": "Border level 2",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 1,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "admin_level", 2],
+        ["!=", "maritime", 1],
+        ["!=", "disputed", 1]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(152, 161, 171, 1)",
+        "line-dasharray": ["literal", [5, 1, 1, 1]],
+        "line-width": {"base": 1, "stops": [[0, 0.5], [5, 1], [12, 1.5]]}
+      }
+    },
+    {
+      "id": "Road oneway arrow",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 15.5,
+      "filter": [
+        "all",
+        ["==", "oneway", 1],
+        ["!in", "class", "rail", "transit"]
+      ],
+      "layout": {
+        "icon-image": "contraflow",
+        "icon-pitch-alignment": "auto",
+        "icon-rotation-alignment": "auto",
+        "icon-size": {"stops": [[15, 0.3], [18, 0.8]]},
+        "symbol-placement": "line",
+        "text-font": []
+      },
+      "paint": {"icon-opacity": 0.7, "icon-translate-anchor": "map"}
+    },
+    {
+      "id": "Road minor labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "minor", "service", "track"]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-rotation-alignment": "map",
+        "text-size": {"base": 1, "stops": [[15, 9], [16, 10]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Road path labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 15.5,
+      "filter": ["==", "class", "path"],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-angle": 30,
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": {"base": 1, "stops": [[13, 9], [16, 10]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 0.5
+      }
+    },
+    {
+      "id": "Road major labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 13.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "class", "primary", "secondary", "tertiary", "trunk"],
+        ["!in", "class", "motorway"]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": 800,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-angle": 30,
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": {"base": 1, "stops": [[13, 9], [16, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {"text-color": "rgba(79, 88, 99, 1)", "text-halo-width": 1}
+    },
+    {
+      "id": "Road numbers",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 13.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "in",
+          "class",
+          "primary",
+          "secondary",
+          "tertiary",
+          "primary_construction"
+        ],
+        ["<=", "ref_length", 3]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-anchor": "center",
+        "icon-ignore-placement": false,
+        "icon-image": "prefectural_road",
+        "icon-optional": false,
+        "icon-padding": 50,
+        "icon-pitch-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 13.5, 0.5, 16, 0.8],
+        "icon-text-fit": "none",
+        "symbol-avoid-edges": true,
+        "symbol-placement": {"base": 1, "stops": [[10, "line"], [13, "line"]]},
+        "symbol-spacing": 200,
+        "text-field": "{ref}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-line-height": 1.2,
+        "text-max-angle": 30,
+        "text-offset": [0, 0],
+        "text-padding": 2,
+        "text-pitch-alignment": "auto",
+        "text-rotation-alignment": "viewport",
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 8, 16, 11],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-halo-blur": 0,
+        "icon-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "icon-halo-width": 0,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-width": 0,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Trunk numbers",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "trunk"],
+        [">=", "ref_length", 3],
+        ["<=", "ref_length", 4]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "kokudo",
+        "icon-optional": false,
+        "icon-padding": 30,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.6, 16, 0.8],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": 600,
+        "text-field": "{ref}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-line-height": 1.2,
+        "text-offset": [0, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": ["interpolate", ["linear"], ["zoom"], 13, 8, 16, 11],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-halo-blur": 0,
+        "icon-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "icon-halo-width": 0,
+        "icon-translate": [1, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Main trunk numbers",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "trunk"],
+        ["<=", "ref_length", 2]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "kokudo",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-padding": 30,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.6, 16, 0.8],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": {"stops": [[9, 150], [11, 300]]},
+        "text-allow-overlap": false,
+        "text-field": "{ref} ",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-line-height": 1.2,
+        "text-offset": [0, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": ["interpolate", ["linear"], ["zoom"], 13, 8, 16, 11],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-halo-blur": 0,
+        "icon-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "icon-halo-width": 0,
+        "icon-translate": [1, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Motorway labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "class", "motorway", "motorway_construction"]],
+      "layout": {
+        "icon-pitch-alignment": "map",
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": 600,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-angle": 30,
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[6, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Motorway numbers",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "motorway"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "expressway",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-padding": 30,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.6], [16, 0.8]]},
+        "icon-text-fit": "none",
+        "icon-text-fit-padding": [1, 1, 1, 1],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": {"stops": [[9, 150], [11, 300]]},
+        "text-allow-overlap": false,
+        "text-field": "{ref} ",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-line-height": 1.2,
+        "text-offset": [0, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": ["interpolate", ["linear"], ["zoom"], 13, 9, 16, 14],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 0,
+        "icon-translate": [1, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Other water labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["!in", "class", "ocean", "sea", "lake"]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 350,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-angle": 30,
+        "text-max-width": 9,
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[14, 8], [16, 10]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(162, 210, 255)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Lake labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "$type", "Point"], ["in", "class", "lake"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 350,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-angle": 30,
+        "text-max-width": 12,
+        "text-padding": 50,
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[11, 10], [20, 18]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(112.75, 171.25, 203.25, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Lakeline labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "filter": ["==", "$type", "LineString"],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line-center",
+        "symbol-spacing": 350,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.2,
+        "text-max-width": 5,
+        "text-rotation-alignment": "map",
+        "text-size": 14
+      },
+      "paint": {
+        "text-color": "rgba(112.75, 171.25, 203.25, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "Waterway labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "$type", "LineString"], ["has", "name"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "line",
+        "symbol-spacing": 350,
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-angle": 30,
+        "text-max-width": 5,
+        "text-padding": 50,
+        "text-pitch-alignment": "viewport",
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[12, 10], [15, 12], [20, 18]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(162, 210, 255)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "National park labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "park",
+      "minzoom": 6,
+      "maxzoom": 11,
+      "filter": ["all", ["==", "class", "national_park"]],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-padding": 20,
+        "text-size": {"stops": [[6, 8], [10, 10]]}
+      },
+      "paint": {"text-color": "rgba(126.04, 181.93, 102.6, 1)"}
+    },
+    {
+      "id": "Sea labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "minzoom": 4,
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "sea"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 350,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-width": 9,
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[5, 12], [10, 14]]}
+      },
+      "paint": {
+        "text-color": "rgba(112.75, 171.25, 203.25, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Ocean labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "ocean"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 350,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-width": 9,
+        "text-rotation-alignment": "map",
+        "text-size": {"stops": [[1, 12], [6, 14]]}
+      },
+      "paint": {
+        "text-color": "rgba(112.75, 171.25, 203.25, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.7)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "House numbers",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "housenumber",
+      "minzoom": 16,
+      "layout": {
+        "text-field": "{housenumber}",
+        "text-font": ["Noto Sans Medium Italic"],
+        "text-size": {"stops": [[16, 12], [18, 14]]},
+        "text-transform": "none",
+        "text-anchor": "center",
+        "text-overlap": "never",
+        "text-optional": false,
+        "text-ignore-placement": false,
+        "text-pitch-alignment": "auto",
+        "symbol-z-order": "auto",
+        "symbol-placement": "point"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)"
+      }
+    },
+    {
+      "id": "Doctor",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17.8,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "doctors"], ["has", "name"]],
+      "layout": {
+        "icon-image": "doctor_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-max-width": 9,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 8], [18, 11]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Pub",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "class", "beer"], ["has", "name"]],
+      "layout": {
+        "icon-anchor": "center",
+        "icon-image": [
+          "match",
+          ["get", "subclass"],
+          "pub",
+          "bar_11",
+          "beer_11"
+        ],
+        "icon-offset": [0, 0.5],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-max-width": 12,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[15, 8], [18, 11]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Restaurant and shop",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "pharmacy",
+          "shop",
+          "alcohol",
+          "restaurant",
+          "grocery",
+          "cafe",
+          "fast_food",
+          "hairdresser",
+          "clothing_store",
+          "bakery",
+          "bicycle"
+        ],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-anchor": "center",
+        "icon-image": "{class}_11",
+        "icon-offset": [0, 0.5],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-max-width": 12,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[15, 8], [18, 11]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Toilets",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "toilets"],
+        ["==", "subclass", "toilets"]
+      ],
+      "layout": {
+        "icon-image": "toilet_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "auto",
+        "text-max-width": 12,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 8], [18, 11]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Generic POI",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "castle_ruins",
+          "gift",
+          "ice_cream",
+          "theatre",
+          "music",
+          "cinema",
+          "sports_centre",
+          "theme_park"
+        ],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": [
+          "match",
+          ["get", "class"],
+          "gift",
+          "gift",
+          "ice_cream",
+          "ice_cream",
+          "theatre",
+          "theatre",
+          "music",
+          "music",
+          "castle_ruins",
+          "castle_ruins",
+          "cinema",
+          "cinema",
+          "dot"
+        ],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "auto",
+        "text-max-width": 12,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 8], [18, 11]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Generic POI 11",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "aquarium",
+          "post",
+          "police",
+          "bank",
+          "fire_station",
+          "town_hall",
+          "information",
+          "library",
+          "monument",
+          "car",
+          "attraction",
+          "kindergarten",
+          "art_gallery",
+          "garden",
+          "fuel",
+          "embassy",
+          "swimming_pool",
+          "playground",
+          "laundry",
+          "museum",
+          "veterinary",
+          "dentist",
+          "cemetery"
+        ],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": "{class}_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "auto",
+        "text-max-width": 12,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 8], [18, 11]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Religious",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["in", "class", "place_of_worship"], ["has", "name"]],
+      "layout": {
+        "icon-image": [
+          "match",
+          ["get", "subclass"],
+          "buddhist",
+          "buddhist_11",
+          "shinto",
+          "shinto_11",
+          "christian",
+          "christian_11",
+          "jewish",
+          "jewish_11",
+          "muslim",
+          "muslim_11",
+          "dot"
+        ],
+        "icon-size": {"stops": [[15, 0.3], [17, 0.5]]},
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-max-width": 12,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 8], [18, 11]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Bus stop",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 18.5,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "bus"], ["==", "subclass", "bus_stop"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-image": "bus_11",
+        "icon-offset": [0, 0],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 18, 0.4],
+        "symbol-avoid-edges": true,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-offset": [0, 0.5],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 15, 8, 18, 10],
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-color": "rgba(79, 88, 99, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Bus station",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "bus"],
+        ["==", "subclass", "bus_station"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-image": "bus_11",
+        "icon-offset": [0, 0],
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.4, 16, 0.6],
+        "symbol-avoid-edges": true,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-offset": [0, 0.8],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 15, 8, 18, 10],
+        "visibility": "visible",
+        "text-radial-offset": 2
+      },
+      "paint": {
+        "icon-color": "rgba(160, 167, 176, 1)",
+        "icon-opacity": 1,
+        "text-color": "rgba(160, 167, 176, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Hotel",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "subclass", "hotel"], ["has", "name"]],
+      "layout": {
+        "icon-image": "lodging",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.35, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-max-width": 16,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 9, 18, 12],
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Store and mall",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "subclass", "departmen_store", "mall"],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": "{class}_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.35, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 9, 18, 12],
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Major POI",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "castle",
+          "school",
+          "hospital",
+          "college",
+          "zoo",
+          "park",
+          "harbor",
+          "stadium"
+        ],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": "{class}_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.35, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 9, 18, 12],
+        "visibility": "visible",
+        "text-transform": "none",
+        "text-keep-upright": false,
+        "text-offset": [0, 0],
+        "text-optional": false,
+        "text-ignore-placement": false,
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Golf pitch",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "golf"],
+        ["==", "subclass", "golf_course"],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": "golf",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.35, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-max-width": 16,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 9, 18, 12],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(125.28, 181.22, 102.03, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Government",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "town_hall"], ["has", "name"]],
+      "layout": {
+        "icon-image": "{class}_11",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.35, 17, 0.5],
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-offset": [0.8, 0],
+        "text-padding": 2,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 14, 9, 18, 12],
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Hamlet labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 17,
+      "filter": ["all", ["==", "class", "hamlet"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[15, 9], [16, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Neighbourhood labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 16,
+      "filter": ["all", ["==", "class", "neighbourhood"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[14, ["Noto Sans Regular"]], [16, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[14, 9], [16, 13]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Quarter labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 13,
+      "filter": ["all", ["==", "class", "quarter"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[14, ["Noto Sans Regular"]], [16, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[14, 10], [16, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Toll booth",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "class", "toll_booth"],
+        ["==", "subclass", "toll_booth"],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-image": "intersection_shield",
+        "icon-size": {"stops": [[14, 0.6], [16, 0.8]]},
+        "icon-text-fit": "none",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Bold"],
+        "text-size": {"stops": [[14, 9], [16, 11]]}
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-translate": [0, -0.5]
+      }
+    },
+    {
+      "id": "Mountain under 500",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": ["all", ["<", "ele", 500]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "mountain",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 14, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 200,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8},
+            "\n",
+            "",
+            ["get", "ele"],
+            "m"
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-line-height": 1.2,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": {"stops": [[12, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 1,
+        "icon-translate": [2, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Mountain 500",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": ["all", [">=", "ele", 500], ["<", "ele", 1000]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "mountain",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 200,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8},
+            "\n",
+            "",
+            ["get", "ele"],
+            "m"
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-line-height": 1.2,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": {"stops": [[10, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 1,
+        "icon-translate": [2, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Mountain 1000",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": ["all", [">=", "ele", 1000], ["<", "ele", 2000]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "mountain",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 200,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8},
+            "\n",
+            "",
+            ["get", "ele"],
+            "m"
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-line-height": 1.2,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": {"stops": [[10, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 1,
+        "icon-translate": [2, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Mountain 2000",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": ["all", [">=", "ele", 2000]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "mountain",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 200,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8},
+            "\n",
+            ["get", "ele"],
+            "",
+            "m"
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "left",
+        "text-line-height": 1.2,
+        "text-offset": [1, 0],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": {"stops": [[10, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 1,
+        "icon-translate": [2, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Mountain Fuji",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "name", "富士山"], ["==", "name_en", "Mount Fuji"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-image": "mountain",
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "symbol-spacing": 200,
+        "text-anchor": "bottom",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8},
+            "\n",
+            "",
+            ["get", "ele"],
+            "m"
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-line-height": 1.2,
+        "text-offset": [0, -0.5],
+        "text-padding": 2,
+        "text-rotation-alignment": "viewport",
+        "text-size": {"stops": [[10, 10], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-blur": 0,
+        "icon-halo-width": 1,
+        "icon-opacity": 0.8,
+        "icon-translate": [2, 1],
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Motorway junction",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "motorway_junction"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": {"stops": [[13, 9], [18, 16]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(127, 205, 176, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": {
+          "stops": [
+            [14, "rgba(248.55, 250.55, 252.55, 1)"],
+            [15, "rgba(248.55, 250.55, 252.55, 1)"]
+          ]
+        },
+        "text-halo-width": 10,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "Ferry terminal",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "class", "ferry_terminal"],
+        ["==", "subclass", "ferry_terminal"]
+      ],
+      "layout": {
+        "icon-image": "ferry",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 16, 0.5],
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 16,
+        "text-offset": {"stops": [[12, [0, 1.4]], [16, [0, 1.8]]]},
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 9, 16, 12]
+      },
+      "paint": {
+        "text-color": "rgba(160, 167, 176, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1,
+        "text-opacity": {"stops": [[12, 0.5], [16, 1]]}
+      }
+    },
+    {
+      "id": "Other station",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "subclass", "station"],
+        ["in", "class", "aerialway"],
+        ["has", "name"]
+      ],
+      "layout": {
+        "icon-allow-overlap": true,
+        "icon-image": "rail_light_11",
+        "icon-optional": true,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 13, 0.2, 16, 0.4],
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 1,
+        "text-allow-overlap": false,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-offset": [0, 1.8],
+        "text-optional": false,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 9, 16, 12],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-halo-width": 1,
+        "icon-opacity": 1,
+        "text-color": "rgba(160, 167, 176, 1)",
+        "text-opacity": 0.8
+      }
+    },
+    {
+      "id": "Subway entrance",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 17,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "subclass", "subway_entrance"]],
+      "layout": {
+        "icon-image": "entrance_11",
+        "icon-optional": true,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 15, 0.3, 18, 0.4],
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 250,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Bold"],
+        "text-justify": "center",
+        "text-offset": [0.8, 0],
+        "text-optional": false,
+        "text-size": {"stops": [[16, 9], [18, 12]]},
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(154.75, 152.3, 177.4, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.5,
+        "text-opacity": {"stops": [[16, 0.5], [17, 0.8]]}
+      }
+    },
+    {
+      "id": "Tram station",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 13.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["has", "name"],
+        ["==", "class", "railway"],
+        ["==", "subclass", "tram_stop"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-image": "rail_light_11",
+        "icon-optional": true,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 16, 0.5],
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 1,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name_int"]],
+              "",
+              ["coalesce", ["get", "name_int"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[10, ["Noto Sans Regular"]], [15, ["Noto Sans Bold"]]]
+        },
+        "text-justify": "left",
+        "text-max-width": 16,
+        "text-offset": [0.8, 0],
+        "text-optional": false,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 9, 16, 12],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(160, 167, 176, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1.5,
+        "text-opacity": 0.8
+      }
+    },
+    {
+      "id": "Subway station",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "subclass", "subway"]],
+      "layout": {
+        "icon-allow-overlap": true,
+        "icon-image": "rail_metro_11",
+        "icon-optional": true,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 16, 0.6],
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 1,
+        "text-allow-overlap": false,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[10, ["Noto Sans Regular"]], [15, ["Noto Sans Bold"]]]
+        },
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-offset": [0, 1.8],
+        "text-optional": false,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 9, 16, 12],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-halo-width": 1,
+        "icon-opacity": 1,
+        "text-color": "rgba(154.75, 152.3, 177.4, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 2,
+        "text-opacity": {"stops": [[12, 0.5], [16, 1]]}
+      }
+    },
+    {
+      "id": "Railway station",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
+      ],
+      "layout": {
+        "icon-allow-overlap": false,
+        "icon-image": "railway_11",
+        "icon-optional": true,
+        "icon-rotation-alignment": "viewport",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 16, 0.6],
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 1,
+        "text-allow-overlap": false,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[10, ["Noto Sans Regular"]], [12, ["Noto Sans Bold"]]]
+        },
+        "text-justify": "center",
+        "text-max-width": 16,
+        "text-offset": {"stops": [[11, [0, 1.5]], [16, [0, 1.8]]]},
+        "text-optional": false,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 9, 16, 12],
+        "visibility": "none"
+      },
+      "paint": {
+        "icon-halo-width": 1,
+        "icon-opacity": 1,
+        "text-color": "rgba(160, 167, 176, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 2,
+        "text-opacity": {"stops": [[12, 0.5], [16, 1]]}
+      }
+    },
+    {
+      "id": "Minor airpot labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "aerodrome_label",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "class", "international", "public", "other"],
+        ["has", "name"],
+        ["!has", "iata"]
+      ],
+      "layout": {
+        "icon-image": "airport_11",
+        "icon-size": {"stops": [[9, 0.3], [16, 0.7]]},
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 16,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": {"stops": [[12, 9], [18, 16]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Airport labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "aerodrome_label",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "class", "international", "public", "other"],
+        ["has", "name"],
+        ["has", "iata"]
+      ],
+      "layout": {
+        "icon-image": "airport_11",
+        "icon-size": {"stops": [[9, 0.3], [16, 0.7]]},
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[9, ["Noto Sans Regular"]], [11, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 16,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": {"stops": [[9, 9], [18, 16]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Village labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 12,
+      "maxzoom": 17,
+      "filter": ["==", "class", "village"],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[12, ["Noto Sans Regular"]], [14, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[12, 9], [16, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Town labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 9,
+      "maxzoom": 17,
+      "filter": ["any", ["==", "class", "town"], ["==", "class", "suburb"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[6, ["Noto Sans Regular"]], [12, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[10, 11], [15, 20]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "City labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 17,
+      "filter": ["all", ["!=", "capital", 2], ["==", "class", "city"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "symbol-spacing": 5,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": {
+          "stops": [[5, ["Noto Sans Regular"]], [7, ["Noto Sans Bold"]]]
+        },
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[5, 9], [14, 20]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Province labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 9,
+      "filter": [
+        "all",
+        ["==", "class", "province"],
+        ["!=", "capital", 2],
+        ["!=", "rank", 5],
+        ["!=", "name", "Hokkaido"],
+        ["!=", "name", "Aomori"],
+        ["!=", "name", "Iwate"],
+        ["!=", "name", "Akita"],
+        ["!=", "name", "Miyagi"],
+        ["!=", "name", "Yamagata"],
+        ["!=", "name", "Fukushima"],
+        ["!=", "name", "Tochigi"],
+        ["!=", "name", "Ibaraki"],
+        ["!=", "name", "Gunma"],
+        ["!=", "name", "Niigata"],
+        ["!=", "name", "Chiba"],
+        ["!=", "name", "Saitama"],
+        ["!=", "name", "Tokyo"],
+        ["!=", "name", "Kanagawa"],
+        ["!=", "name", "Yamanashi"],
+        ["!=", "name", "Nagano"],
+        ["!=", "name", "Shizuoka"],
+        ["!=", "name", "Toyama"],
+        ["!=", "name", "Ishikawa"],
+        ["!=", "name", "Fukui"],
+        ["!=", "name", "Aichi"],
+        ["!=", "name", "Mie"],
+        ["!=", "name", "Gifu"],
+        ["!=", "name", "Nara"],
+        ["!=", "name", "Shiga"],
+        ["!=", "name", "Kyoto"],
+        ["!=", "name", "Osaka"],
+        ["!=", "name", "Wakayama"],
+        ["!=", "name", "Hyogo"],
+        ["!=", "name", "Okayama"],
+        ["!=", "name", "Hiroshima"],
+        ["!=", "name", "Tottori"],
+        ["!=", "name", "Shimane"],
+        ["!=", "name", "Yamaguchi"],
+        ["!=", "name", "Tokushima"],
+        ["!=", "name", "kagawa"],
+        ["!=", "name", "Ehime"],
+        ["!=", "name", "Kochi"],
+        ["!=", "name", "Fukuoka"],
+        ["!=", "name", "Oita"],
+        ["!=", "name", "Saga"],
+        ["!=", "name", "Nagasaki"],
+        ["!=", "name", "Kumamoto"],
+        ["!=", "name", "Miyazaki"],
+        ["!=", "name", "Kagoshima"],
+        ["!=", "name", "Okinawa"]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[5, 10], [10, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Todofuken labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 9,
+      "filter": [
+        "all",
+        ["==", "class", "province"],
+        ["!=", "capital", 2],
+        ["!=", "rank", 5],
+        [
+          "any",
+          ["==", "name:ja", "北海道"],
+          ["==", "name:ja", "青森県"],
+          ["==", "name:ja", "岩手県"],
+          ["==", "name:ja", "秋田県"],
+          ["==", "name:ja", "宮城県"],
+          ["==", "name:ja", "山形県"],
+          ["==", "name:ja", "福島県"],
+          ["==", "name:ja", "新潟県"],
+          ["==", "name:ja", "茨城県"],
+          ["==", "name:ja", "栃木県"],
+          ["==", "name:ja", "群馬県"],
+          ["==", "name:ja", "埼玉県"],
+          ["==", "name:ja", "千葉県"],
+          ["==", "name:ja", "東京都"],
+          ["==", "name:ja", "神奈川県"],
+          ["==", "name:ja", "山梨県"],
+          ["==", "name:ja", "静岡県"],
+          ["==", "name:ja", "長野県"],
+          ["==", "name:ja", "富山県"],
+          ["==", "name:ja", "石川県"],
+          ["==", "name:ja", "福井県"],
+          ["==", "name:ja", "岐阜県"],
+          ["==", "name:ja", "愛知県"],
+          ["==", "name:ja", "滋賀県"],
+          ["==", "name:ja", "三重県"],
+          ["==", "name:ja", "奈良県"],
+          ["==", "name:ja", "和歌山県"],
+          ["==", "name:ja", "京都府"],
+          ["==", "name:ja", "大阪府"],
+          ["==", "name:ja", "兵庫県"],
+          ["==", "name:ja", "徳島県"],
+          ["==", "name:ja", "香川県"],
+          ["==", "name:ja", "愛媛県"],
+          ["==", "name:ja", "高知県"],
+          ["==", "name:ja", "岡山県"],
+          ["==", "name:ja", "広島県"],
+          ["==", "name:ja", "鳥取県"],
+          ["==", "name:ja", "島根県"],
+          ["==", "name:ja", "山口県"],
+          ["==", "name:ja", "大分県"],
+          ["==", "name:ja", "福岡県"],
+          ["==", "name:ja", "佐賀県"],
+          ["==", "name:ja", "長崎県"],
+          ["==", "name:ja", "熊本県"],
+          ["==", "name:ja", "宮崎県"],
+          ["==", "name:ja", "鹿児島県"],
+          ["==", "name:ja", "沖縄県"]
+        ]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name:ja"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[5, 10], [10, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Prefecture labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 9,
+      "filter": [
+        "all",
+        ["==", "class", "province"],
+        ["!=", "capital", 2],
+        ["==", "rank", 5]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name:ja"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[5, 10], [10, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "State 2 labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 10,
+      "filter": ["all", ["==", "class", "state"], [">=", "rank", 5]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[5, 10], [10, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "State 1 labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 4.5,
+      "maxzoom": 9,
+      "filter": ["all", ["==", "class", "state"], ["in", "rank", 1, 2, 3, 4]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[4, 11], [8, 18]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Minor island labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "island"], [">=", "rank", 6]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[12, 8], [14, 10]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(117, 129, 145, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Middle island labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 8,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "island"],
+        [">=", "rank", 4],
+        ["<=", "rank", 5]
+      ],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[8, 8], [14, 12]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Major island labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 6,
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "island"], ["<=", "rank", 3]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 12,
+        "text-size": {"base": 1.2, "stops": [[8, 12], [14, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Capital labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 4,
+      "maxzoom": 10,
+      "filter": ["all", [">=", "rank", 1], ["==", "capital", 2]],
+      "layout": {
+        "icon-image": "star",
+        "icon-size": {"stops": [[6, 0.3], [10, 0.5]]},
+        "symbol-avoid-edges": true,
+        "text-anchor": "top",
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-justify": "left",
+        "text-max-width": 12,
+        "text-offset": [0.6, 0],
+        "text-size": {"base": 1.2, "stops": [[4, 11], [8, 18]]},
+        "visibility": "visible",
+        "text-radial-offset": 1
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "Country labels",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 2,
+      "maxzoom": 10,
+      "filter": ["all", ["==", "class", "country"]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-field": [
+          "let",
+          "main",
+          ["get", "name"],
+          [
+            "format",
+            ["var", "main"],
+            {"font-scale": 1},
+            "\n",
+            "",
+            [
+              "case",
+              ["==", ["var", "main"], ["get", "name:en"]],
+              "",
+              ["coalesce", ["get", "name:en"], ""]
+            ],
+            {"font-scale": 0.8}
+          ]
+        ],
+        "text-font": ["Noto Sans Bold"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[4, 12], [6, 18]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(79, 88, 99, 1)",
+        "text-halo-color": "rgba(248.55, 250.55, 252.55, 0.8)",
+        "text-halo-width": 1.2
+      }
+    }
+  ],
+  "id": "jp-mierune-streets",
+  "owner": "ARY"
+}
